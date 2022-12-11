@@ -1,0 +1,133 @@
+$base-color: #ade0e7;
+$border-color: #0096aa;
+$background-color: #f5f5f5;
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  background-color: $background-color;
+}
+
+// #####Homepage######
+.homepage {
+  min-height: 90vh;
+  padding-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// #####Searchpage######
+.searchpage {
+  min-height: 90vh;
+  padding-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// #####Profilepage######
+.profilepage {
+  min-height: 90vh;
+  padding-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// #####Postspage######
+.postpage {
+  padding: 1rem 0.8rem;
+  padding-bottom: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+// #####DownbarComponents######
+
+.downbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  .container {
+    width: 100%;
+    display: flex;
+    // padding: 0 1rem;
+    justify-content: space-around;
+    align-items: center;
+    .part {
+      display: flex;
+      align-items: center;
+      padding: 0.4rem 0.7rem;
+      flex: 1;
+      svg {
+        font-size: 1.7rem;
+        padding-right: 0.4rem;
+        color: gray;
+      }
+      span {
+        opacity: 0;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+      .active {
+        color: $border-color;
+      }
+    }
+  }
+}
+
+// #####PostComponents######
+.postcomponent {
+  background-color: white;
+  margin-bottom: 0.8rem;
+  border-radius: 1rem;
+  .container {
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    img {
+      border-radius: 0.7rem;
+      height: 17rem;
+    }
+    .text {
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
+      p {
+        color: gray;
+        margin: 0;
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+      }
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+// #####spinner######
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  margin-bottom: 1rem;
+  width: 30px;
+  height: 30px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #383636;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
