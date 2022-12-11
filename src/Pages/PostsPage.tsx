@@ -9,20 +9,30 @@ interface Props {
     description: string,
     image: string
 }
+interface apiDataInter {
+    data: [
+        Props
+    ],
+    limit: number,
+    page: number,
+    total: number,
+    totalpages: number,
+    offset: number,
+    hasNextPage: boolean,
+    hasPrevPage: boolean
+}
 
 
 const PostsPage: FC = () => {
     const {
         data,
-        error,
         fetchNextPage,
         hasNextPage,
         isFetchingNextPage,
         status,
-    } = useInfiniteQuery(['posts'], CatchData as QueryFunction, {
-        getNextPageParam: (lastPage: any) => lastPage?.page + 1,
+    } = useInfiniteQuery(['posts'], CatchData as any, {
+        getNextPageParam: (lastPage: apiDataInter) => lastPage?.page + 1
     })
-
 
 
     useEffect(() => {
@@ -31,14 +41,14 @@ const PostsPage: FC = () => {
                 fetchNextPage()
             }
         });
-    }, [])
+    }, [fetchNextPage])
     console.log(data)
     return (
         <div className='postpage'>
             {
-                status === "loading" ? (<Loading />) : status === "error" ? (<span>{error as any}</span>) : (
+                status === "loading" ? (<Loading />) : status === "error" ? (<span>Something went Wrong</span>) : (
                     <>
-                        {data?.pages.map((group: any, i) => (
+                        {data?.pages.map((group: apiDataInter, i) => (
                             <React.Fragment key={i}>
                                 {group?.data.map((post: Props) => (<PostComponent key={post?.id} title={post?.title} description={post?.description} image={post?.image} />))}
                             </React.Fragment>

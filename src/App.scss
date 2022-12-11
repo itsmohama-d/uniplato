@@ -90,6 +90,7 @@ body {
   background-color: white;
   margin-bottom: 0.8rem;
   border-radius: 1rem;
+  width: 100%;
   .container {
     padding: 0.7rem;
     display: flex;
@@ -97,6 +98,7 @@ body {
     img {
       border-radius: 0.7rem;
       height: 17rem;
+      width: 100%;
     }
     .text {
       padding-top: 1.5rem;

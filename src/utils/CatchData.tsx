@@ -15,7 +15,7 @@ interface apiData {
             totalpages: number,
             offset: number,
             hasNextPage: boolean,
-            hasPrevPage: false
+            hasPrevPage: boolean
         }
     }
 }
